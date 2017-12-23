@@ -10,6 +10,8 @@ alias gl="git log"
 alias gc="git commit -m"
 alias c="clear"
 
+export CLICOLOR=1
+
 function mdd {
 	mkdir $1
 	cd $1
