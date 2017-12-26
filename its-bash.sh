@@ -1,4 +1,4 @@
-source ~/.its-local-bash.sh
+. ~/.its-local-bash.sh
 
 alias ll='ls -alF'
 alias la='ls -A'
