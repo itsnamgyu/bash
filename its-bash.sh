@@ -105,7 +105,7 @@ alias push="git push"
 alias pull="git pull"
 alias commit="git commit -m"
 
-alias c="clear"
+alias c="printf '\e[3J'"
 
 export CLICOLOR=1
 
