@@ -5,9 +5,13 @@ alias la='ls -A'
 alias l='ls -CF'
 alias md="mkdir"
 alias cdd="cd .."
+
 alias g="git"
-alias gl="git log"
-alias gc="git commit -m"
+alias add="git add"
+alias push="git push"
+alias pull="git pull"
+alias commit="git commit -m"
+
 alias c="clear"
 
 export CLICOLOR=1
