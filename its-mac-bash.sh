@@ -25,5 +25,5 @@ function hoho {
 }
 
 function aws {
-	ssh ubuntu@13.124.239.9
+	ssh aws
 }
