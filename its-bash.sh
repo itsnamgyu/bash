@@ -98,14 +98,20 @@ alias la='ls -A'
 alias l='ls -CF'
 alias md="mkdir"
 alias cdd="cd .."
+alias cddd="cd ../.."
+
+alias py="python"
+alias py2="python2"
+alias py3="python3"
 
 alias g="git"
 alias add="git add"
 alias push="git push"
 alias pull="git pull"
 alias commit="git commit -m"
+alias status="git status"
 
-alias c="printf '\e[3J'"
+alias sv="source venv/bin/activate"
 
 export CLICOLOR=1
 
@@ -126,6 +132,11 @@ function rbl {
 
 function rv {
 	vi ~/.vimrc
+}
+
+function c {
+	printf '\e[3J'
+	clear
 }
 
 function run {
