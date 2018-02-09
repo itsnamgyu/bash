@@ -4,7 +4,7 @@ mac:
 	echo ". ~/.its-bash.sh" >> ~/.bash_profile
 	. ~/.bash_profile
 
-linux:
+ubuntu:
 	cp its-bash.sh ~/.its-bash.sh
 	touch ~/.its-local-bash.sh
 	echo ". ~/.its-bash.sh" >> ~/.bashrc
