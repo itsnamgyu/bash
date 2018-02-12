@@ -1,8 +1,8 @@
 # its-bash
-It's my bash profile!
+It's my bash profile stuff
 
 ## Usage
-Current supported operating systems: mac, ubuntu
+Currently supported operating systems: mac, ubuntu
 ~~~~
 source <os>_install.sh
 make clean
