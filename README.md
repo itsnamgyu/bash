@@ -1,4 +1,4 @@
-# its-bash
+# bash-man
 It's my bash profile stuff
 
 ## Usage
