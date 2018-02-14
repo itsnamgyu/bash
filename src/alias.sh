@@ -1,7 +1,7 @@
 alias rv="vi ~/.vimrc"
-alias rb="vi $BASH_BASE; source $BASH_BASE"
-alias rbl="vi ~/.bash/local.sh; source $BASH_BASE"
-alias rba="vi ~/.bash/alias.sh; source $BASH_BASE"
+alias rb="vi $BASE_BASH; source $BASE_BASH"
+alias rbl="vi ~/.bash/local.sh; source $BASE_BASH"
+alias rba="vi ~/.bash/alias.sh; source $BASE_BASH"
 
 alias ll='ls -alF'
 alias la='ls -A'
