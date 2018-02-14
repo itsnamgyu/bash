@@ -111,7 +111,7 @@ function run {
 			./.run_temp_output
 			rm .run_temp_output
 		elif [[ $1 == *.cpp ]]; then
-			g++ -o .run_temp_output $1
+			g++ --std=c++11 -o .run_temp_output $1
 			./.run_temp_output
 			rm .run_temp_output
 		else
