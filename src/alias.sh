@@ -1,7 +1,7 @@
 alias rv="vi ~/.vimrc"
-alias rb="vi ~/$BASH_BASE; source ~/$BASH_BASE"
-alias rbl="vi ~/.bash/local.sh; source ~/$BASH_BASE"
-alias rba="vi ~/.bash/alias.sh; source ~/$BASH_BASE"
+alias rb="vi $BASH_BASE; source $BASH_BASE"
+alias rbl="vi ~/.bash/local.sh; source $BASH_BASE"
+alias rba="vi ~/.bash/alias.sh; source $BASH_BASE"
 
 alias ll='ls -alF'
 alias la='ls -A'
@@ -27,6 +27,18 @@ alias merge="git merge"
 alias checkout="git checkout"
 
 alias sv="source venv/bin/activate"
+
+function git-clone-https {
+	if [ $# == 2 ]; then
+		git clone https://github.com/$1/$2.git
+	fi
+}
+
+function git-clone {
+	if [ $# == 2 ]; then
+		git clone git@github.com:$1/$2.git
+	fi
+}
 
 function c {
 	ABS=`echo $@`

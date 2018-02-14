@@ -1,11 +1,3 @@
-BASE_BASH=$BASE_BASH
-BASE_BASH=$BASE_BASH
-BASE_BASH=$BASE_BASH
-BASE_BASH=$BASE_BASH
-BASE_BASH=~/.bashrc
-BASE_BASH=~/.bashrc
-BASE_BASH=~/.bashrc
-BASE_BASH=~/.bashrc
 . ~/.bash/local.sh
 . ~/.bash/alias.sh
 
