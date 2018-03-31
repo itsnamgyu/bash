@@ -7,6 +7,10 @@ case $- in
       *) return;;
 esac
 
+if [[ $TMUX != "" ]]; then
+	export TERM="xterm-256color"
+fi
+
 HISTCONTROL=ignoreboth # no duplicates in history
 HISTSIZE=1000
 HISTFILESIZE=2000
