@@ -121,3 +121,11 @@ function run {
 		return 0
 	fi
 }
+
+function test {
+	if [[ $1 == *.c ]]; then
+		gcc -D TEST -O2 -Wall -Wextra -o .run_temp_output $1
+		./.run_temp_output
+		rm .run_temp_output
+	fi
+}
