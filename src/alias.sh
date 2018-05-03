@@ -28,6 +28,14 @@ alias checkout="git checkout"
 
 alias sv="source venv/bin/activate"
 
+function sv-init {
+	python3 -m venv venv
+	sv
+	pip install --upgrade pip
+	vi requirements.txt
+	pip install -r requirements.txt
+}
+
 function git-clone-https {
 	if [ $# == 2 ]; then
 		git clone https://github.com/$1/$2.git
