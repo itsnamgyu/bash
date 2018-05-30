@@ -74,3 +74,6 @@ if ! shopt -oq posix; then
   fi
 fi
 export CLICOLOR=1
+
+# omg
+export HOMEBREW_NO_AUTO_UPDATE=1
