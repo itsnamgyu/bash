@@ -42,12 +42,20 @@ function sv-init {
 }
 
 function git-clone-https {
+	if [ $# == 1 ]; then
+		git clone https://github.com/itsnamgyu/$2.git
+	fi
+
 	if [ $# == 2 ]; then
 		git clone https://github.com/$1/$2.git
 	fi
 }
 
 function git-clone {
+	if [ $# == 1 ]; then
+		git clone git@github.com:itsnamgyu/$2.git
+	fi
+
 	if [ $# == 2 ]; then
 		git clone git@github.com:$1/$2.git
 	fi
