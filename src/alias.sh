@@ -25,8 +25,13 @@ alias status="git status"
 alias branch="git branch"
 alias merge="git merge"
 alias checkout="git checkout"
+alias gs="git status"
 
 alias sv="source venv/bin/activate"
+
+alias ts="tmux ls"
+alias tn="tmux new-session -s"
+alias ta="tmux attach -t"
 
 function sv-init {
 	python3 -m venv venv
