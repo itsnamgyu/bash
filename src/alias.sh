@@ -33,6 +33,10 @@ alias ts="tmux ls"
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
 
+alias sts="sudo tmux ls"
+alias stn="sudo tmux new-session -s"
+alias sta="sudo tmux attach -t"
+
 function sv-init {
 	python3 -m venv venv
 	sv
@@ -43,7 +47,7 @@ function sv-init {
 
 function git-clone-https {
 	if [ $# == 1 ]; then
-		git clone https://github.com/itsnamgyu/$2.git
+		git clone https://github.com/itsnamgyu/$1.git
 	fi
 
 	if [ $# == 2 ]; then
@@ -53,7 +57,7 @@ function git-clone-https {
 
 function git-clone {
 	if [ $# == 1 ]; then
-		git clone git@github.com:itsnamgyu/$2.git
+		git clone git@github.com:itsnamgyu/$1.git
 	fi
 
 	if [ $# == 2 ]; then
