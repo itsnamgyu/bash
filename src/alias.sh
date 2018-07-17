@@ -25,7 +25,11 @@ alias status="git status"
 alias branch="git branch"
 alias merge="git merge"
 alias checkout="git checkout"
+
 alias gs="git status"
+alias gl="git log"
+alias ga="git add"
+alias gd="git diff"
 
 alias sv="source venv/bin/activate"
 
