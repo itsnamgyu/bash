@@ -20,7 +20,7 @@ alias g="git"
 alias add="git add"
 alias push="git push"
 alias pull="git pull"
-alias commit="git commit -m"
+alias commit="git commit"
 alias status="git status"
 alias branch="git branch"
 alias merge="git merge"
@@ -69,10 +69,9 @@ function git-clone {
 	fi
 }
 
-function c {
-	ABS=`echo $@`
-	cd $@
-	ls $ABS
+function cd {
+	command cd $@
+	ls
 }
 
 function mdd {
