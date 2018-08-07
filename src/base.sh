@@ -17,7 +17,11 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s histappend # append history file
 shopt -s checkwinsize # adjust to window size on every command
-shopt -s globstar # use ** in pathnames
+
+if [[ "$OSTYPE" != "darwin"* ]]; then
+	shopt -s globstar # use ** in pathnames
+fi
+
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)" # improve command <less>
 
 # ?
