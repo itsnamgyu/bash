@@ -157,3 +157,9 @@ function test {
 		rm .run_temp_output
 	fi
 }
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	function copy {
+		cat $@ | pbcopy
+	}
+fi
