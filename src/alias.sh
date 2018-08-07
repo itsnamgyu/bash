@@ -42,7 +42,7 @@ alias stn="sudo tmux new-session -s"
 alias sta="sudo tmux attach -t"
 
 function sv-init {
-	python3 -m venv venv
+	python3 -m venv venv $@
 	sv
 	pip install --upgrade pip
 	vi requirements.txt
