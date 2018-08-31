@@ -71,7 +71,7 @@ function git-clone {
 
 function cd {
 	command cd $@
-	ls
+	ls -CF
 }
 
 function mdd {
