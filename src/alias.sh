@@ -36,10 +36,12 @@ alias sv="source venv/bin/activate"
 alias ts="tmux ls"
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
+alias tk="tmux kill-session -t"
 
 alias sts="sudo tmux ls"
 alias stn="sudo tmux new-session -s"
 alias sta="sudo tmux attach -t"
+alias stk="sudo tmux kill-session -t"
 
 function sv-init {
 	python3 -m venv venv $@
