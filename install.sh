@@ -1,3 +1,6 @@
+mv ~/.bashrc ~/.bashrc.bck
+mv ~/.bash_profile ~/.bash_profile.bck
+
 touch ~/.bash_profile
 touch ~/.bash_alias
 touch ~/.bashrc
