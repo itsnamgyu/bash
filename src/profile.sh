@@ -1,17 +1,11 @@
-. ~/.bash/local.sh
-. ~/.bash/alias.sh
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# Enable colors in tmux
-if [[ $TMUX != "" ]]; then
-	export TERM="xterm-256color"
-fi
-	
+. ~/.bash_alias.sh
+
 HISTCONTROL=ignoreboth # no duplicates in history
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -29,7 +23,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Fancy prompt
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
@@ -58,16 +52,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-# color ls, grep, etc. doesn't seem to work
-#if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#    alias ls='ls --color=auto'
-#    alias grep='grep --color=auto'
-#    alias fgrep='fgrep --color=auto'
-#    alias egrep='egrep --color=auto'
-#fi
-
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01' # color GCC
+# GCC Colors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # enable programmable completion features?
 if ! shopt -oq posix; then
@@ -79,5 +65,13 @@ if ! shopt -oq posix; then
 fi
 export CLICOLOR=1
 
-# omg
+# Tmux Colors
+if [[ $TMUX != "" ]]; then
+	export TERM="xterm-256color"
+fi
+	
+# Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+#  Grep
+export GREP_OPTIONS='--color=auto -n'

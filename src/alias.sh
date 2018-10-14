@@ -1,7 +1,6 @@
 alias rv="vi ~/.vimrc"
-alias rb="vi $BASE_BASH; source $BASE_BASH"
-alias rbl="vi ~/.bash/local.sh; source $BASE_BASH"
-alias rba="vi ~/.bash/alias.sh; source $BASE_BASH"
+alias rb="vi ~/.bash_profile"
+alias rba="vi ~/.bash_alias.sh"
 
 alias ll='ls -alF'
 alias la='ls -A'
@@ -46,12 +45,12 @@ alias stk="sudo tmux kill-session -t"
 function sv-init {
 	python3 -m venv venv $@
 	sv
-	pip install --upgrade pip
+	pip3 install --upgrade pip
 	vi requirements.txt
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 }
 
-function git-clone-https {
+function clone-https {
 	if [ $# == 1 ]; then
 		git clone https://github.com/itsnamgyu/$1.git
 	fi
@@ -61,7 +60,7 @@ function git-clone-https {
 	fi
 }
 
-function git-clone {
+function clone {
 	if [ $# == 1 ]; then
 		git clone git@github.com:itsnamgyu/$1.git
 	fi
