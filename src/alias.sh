@@ -53,20 +53,25 @@ function sv-init {
 function clone-https {
 	if [ $# == 1 ]; then
 		git clone https://github.com/itsnamgyu/$1.git
+		cd $1
 	fi
 
 	if [ $# == 2 ]; then
 		git clone https://github.com/$1/$2.git
+		cd $2
 	fi
+
 }
 
 function clone {
 	if [ $# == 1 ]; then
 		git clone git@github.com:itsnamgyu/$1.git
+		cd $1
 	fi
 
 	if [ $# == 2 ]; then
 		git clone git@github.com:$1/$2.git
+		cd $2
 	fi
 }
 
