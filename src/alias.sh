@@ -1,6 +1,6 @@
 alias rv="vi ~/.vimrc"
-alias rb="vi ~/.bash_profile"
-alias rba="vi ~/.bash_alias.sh"
+alias rb="vi ~/.bash_profile; source ~/.bash_profile"
+alias rba="vi ~/.bash_alias.sh; source ~/.bash_profile"
 
 alias ll='ls -alF'
 alias la='ls -A'
