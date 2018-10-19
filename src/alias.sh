@@ -2,9 +2,9 @@ alias rv="vi ~/.vimrc"
 alias rb="vi ~/.bash_profile; source ~/.bash_profile"
 alias rba="vi ~/.bash_alias.sh; source ~/.bash_profile"
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
 alias md="mkdir"
 alias cdd="cd .."
 alias cddd="cd ../.."
