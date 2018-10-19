@@ -4,6 +4,7 @@ alias rba="vi ~/.bash_alias.sh; source ~/.bash_profile"
 
 alias ssh-config="vi ~/.ssh/config"
 alias ssh-key="cat ~/.ssh/id_rsa.pub"
+alias ssh-auth="vi ~/.ssh/authorized_keys"
 
 if [[ "$OSTYPE" != "darwin"* ]]; then
 	alias ls='ls --color=auto'
