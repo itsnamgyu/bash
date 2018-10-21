@@ -11,3 +11,5 @@ cp src/profile.sh ~/.bash_profile
 cp src/alias.sh ~/.bash_alias.sh
 
 source ~/.bash_profile
+
+source clean.sh
