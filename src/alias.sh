@@ -62,6 +62,12 @@ function sv-init {
 	pip3 install -r requirements.txt
 }
 
+function sv-update {
+	sv
+	pip3 install --upgrade pip
+	pip3 install -r requirements.txt
+}
+
 function clone-https {
 	if [ $# == 1 ]; then
 		git clone https://github.com/itsnamgyu/$1.git
