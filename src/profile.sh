@@ -6,17 +6,15 @@ esac
 
 . ~/.bash_alias.sh
 
-HISTCONTROL=ignoreboth # no duplicates in history
+HISTCONTROL=ignoreboth  # no duplicates in history
 HISTSIZE=1000
 HISTFILESIZE=2000
-shopt -s histappend # append history file
-shopt -s checkwinsize # adjust to window size on every command
 
-if [[ "$OSTYPE" != "darwin"* ]]; then
-	shopt -s globstar # use ** in pathnames
-fi
+shopt -s histappend 2> /dev/null  # append history file
+shopt -s checkwinsize 2> /dev/null  # adjust to window size on every command
+shopt -s globstar 2> /dev/null  # allow /**/
 
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)" # improve command <less>
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"  # improve command <less>
 
 # ?
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
