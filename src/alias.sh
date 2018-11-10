@@ -17,6 +17,8 @@ alias md="mkdir"
 alias cdd="cd .."
 alias cddd="cd ../.."
 
+alias rsync="rsync -rvlP"
+
 alias cl="clear; printf '\e[3J"
 
 alias py="python"
