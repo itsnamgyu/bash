@@ -66,6 +66,7 @@ function sv-init {
 
 function sv-update {
 	sv
+	vi requirements.txt
 	pip3 install --upgrade pip
 	pip3 install -r requirements.txt
 }
