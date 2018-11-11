@@ -106,7 +106,7 @@ function clone {
 
 function cd {
 	command cd $@
-	ls -CF
+	ls
 }
 
 function mdd {
