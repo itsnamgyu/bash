@@ -6,7 +6,7 @@ alias ssh-config="vi ~/.ssh/config"
 alias ssh-key="cat ~/.ssh/id_rsa.pub"
 alias ssh-auth="vi ~/.ssh/authorized_keys"
 
-command -v exa
+command -v exa &>/dev/null
 if [[ $? == 0 ]]; then
 	alias l='exa -t=mod --time-style=long-iso'
 	alias ls='exa -t=mod --time-style=long-iso'
