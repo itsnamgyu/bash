@@ -6,14 +6,6 @@ alias ssh-config="vi ~/.ssh/config"
 alias ssh-key="cat ~/.ssh/id_rsa.pub"
 alias ssh-auth="vi ~/.ssh/authorized_keys"
 
-if [[ "$OSTYPE" != "darwin"* ]]; then
-	alias ls='ls --color=auto'
-fi
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 command -v exa
 if [[ $? == 0 ]]; then
 	alias l='exa -t=mod --time-style=long-iso'
@@ -21,6 +13,13 @@ if [[ $? == 0 ]]; then
 	alias la='exa -t=mod --time-style=long-iso -a'
 	alias ll='exa -t=mod --time-style=long-iso -a --long --git'
 	alias lt='exa -t=mod --time-style=long-iso --long --git --tree --level=2'
+else
+	if [[ "$OSTYPE" != "darwin"* ]]; then
+		alias ls='ls --color=auto'
+	fi
+	alias l='ls -CF'
+	alias ll='ls -alF'
+	alias la='ls -A'
 fi
 
 alias md="mkdir"
