@@ -13,6 +13,16 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+command -v exa
+if [[ $? == 0 ]]; then
+	alias l='exa -t=mod --time-style=long-iso'
+	alias ls='exa -t=mod --time-style=long-iso'
+	alias la='exa -t=mod --time-style=long-iso -a'
+	alias ll='exa -t=mod --time-style=long-iso -a --long --git'
+	alias lt='exa -t=mod --time-style=long-iso --long --git --tree --level=2'
+fi
+
 alias md="mkdir"
 alias cdd="cd .."
 alias cddd="cd ../.."
@@ -66,7 +76,6 @@ function sv-init {
 
 function sv-update {
 	sv
-	vi requirements.txt
 	pip3 install --upgrade pip
 	pip3 install -r requirements.txt
 }
