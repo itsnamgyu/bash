@@ -106,7 +106,7 @@ function clone {
 }
 
 function cd {
-	command cd $@
+	command cd "$*"
 	ls
 }
 
