@@ -80,27 +80,20 @@ function sv-update {
 	pip3 install -r requirements.txt
 }
 
-function clone-https {
-	if [ $# == 1 ]; then
-		git clone https://github.com/itsnamgyu/$1.git
-		cd $1
-	fi
-
-	if [ $# == 2 ]; then
-		git clone https://github.com/$1/$2.git
-		cd $2
-	fi
-
-}
-
 function clone {
 	if [ $# == 1 ]; then
 		git clone git@github.com:itsnamgyu/$1.git
+		if [ $? -ne 0 ]; then
+			git clone https://github.com/itsnamgyu/$1.git
+		fi
 		cd $1
 	fi
 
 	if [ $# == 2 ]; then
 		git clone git@github.com:$1/$2.git
+		if [ $? -ne 0 ]; then
+			git clone https://github.com/$1/$2.git
+		fi
 		cd $2
 	fi
 }
