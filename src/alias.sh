@@ -65,6 +65,16 @@ function ho {
 	curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$1\"}" https://hooks.slack.com/services/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
 }
 
+function ras {
+	sudo vi /etc/apache2/sites-enabled/000-default.conf
+	sudo apachectl restart
+}
+
+function ra {
+	sudo vi /etc/apache2/apache2.conf
+	sudo apachectl restart
+}
+
 function sv-init {
 	python3 -m venv venv $@
 	sv
