@@ -35,7 +35,6 @@ alias py2="python2"
 alias py3="python3"
 
 alias g="git"
-alias add="git add"
 alias push="git push"
 alias pull="git pull"
 alias commit="git commit"
@@ -43,6 +42,11 @@ alias status="git status"
 alias branch="git branch"
 alias merge="git merge"
 alias checkout="git checkout"
+
+function add {
+	git add "$@"
+	git status
+}
 
 alias gs="git status"
 alias gl="git log"
