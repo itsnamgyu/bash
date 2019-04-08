@@ -65,6 +65,8 @@ alias stn="sudo tmux new-session -s"
 alias sta="sudo tmux attach -t"
 alias stk="sudo tmux kill-session -t"
 
+alias jj="python -m json.tool"
+
 function ho {
 	curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$1\"}" https://hooks.slack.com/services/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
 }
