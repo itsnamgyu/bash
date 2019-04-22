@@ -34,6 +34,8 @@ alias py="python"
 alias py2="python2"
 alias py3="python3"
 
+alias juppy="jupyter nbconvert --to script"
+
 alias g="git"
 alias push="git push"
 alias pull="git pull"
