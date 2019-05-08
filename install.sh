@@ -1,6 +1,7 @@
 touch ~/.bash_profile
 touch ~/.bash_aliases
 touch ~/.bashrc
+touch ~/.bash_local.sh
 
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.bash_profile ~/.bash_profile.bak

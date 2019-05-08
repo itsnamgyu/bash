@@ -5,6 +5,7 @@ case $- in
 esac
 
 source ~/.bash_aliases
+source ~/.bash_local.sh
 
 HISTCONTROL=ignoreboth  # no duplicates in history
 HISTSIZE=1000
