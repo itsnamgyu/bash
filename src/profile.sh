@@ -4,7 +4,7 @@ case $- in
       *) return;;
 esac
 
-. ~/.bash_alias.sh
+source ~/.bash_aliases
 
 HISTCONTROL=ignoreboth  # no duplicates in history
 HISTSIZE=1000
