@@ -1,6 +1,6 @@
 alias rv="vi ~/.vimrc"
 alias rb="vi ~/.bash_profile; source ~/.bash_profile"
-alias rba="vi ~/.bash_alias.sh; source ~/.bash_profile"
+alias rba="vi ~/.bash_aliases; source ~/.bash_profile"
 
 alias ssh-config="vi ~/.ssh/config"
 alias ssh-key="cat ~/.ssh/id_rsa.pub"
