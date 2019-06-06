@@ -44,6 +44,7 @@ alias commit="git commit"
 alias status="git status"
 alias branch="git branch"
 alias merge="git merge"
+alias amend="git commit --amend"
 alias checkout="git checkout"
 
 function add {
