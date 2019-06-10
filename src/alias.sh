@@ -49,6 +49,9 @@ alias checkout="git checkout"
 
 alias startapp="django-admin startapp"
 alias runserver="source venv/bin/activate; python manage.py runserver"
+alias createsuperuser="source venv/bin/activate; python manage.py createsuperuser"
+alias makemigrations="source venv/bin/activate; python manage.py makemigrations"
+alias migrate="source venv/bin/activate; python manage.py migrate"
 
 function add {
 	git add "$@"
