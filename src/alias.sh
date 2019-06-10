@@ -47,6 +47,9 @@ alias merge="git merge"
 alias amend="git commit --amend"
 alias checkout="git checkout"
 
+alias startapp="django-admin startapp"
+alias runserver="source venv/bin/activate; python manage.py runserver"
+
 function add {
 	git add "$@"
 	git status
