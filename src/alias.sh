@@ -51,6 +51,7 @@ alias startapp="django-admin startapp"
 alias runserver="source venv/bin/activate; python manage.py runserver"
 alias createsuperuser="source venv/bin/activate; python manage.py createsuperuser"
 alias makemigrations="source venv/bin/activate; python manage.py makemigrations"
+alias collectstatic="source venv/bin/activate; python manage.py collectstatic"
 alias migrate="source venv/bin/activate; python manage.py migrate"
 
 function add {
