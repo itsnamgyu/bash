@@ -47,6 +47,7 @@ alias merge="git merge"
 alias amend="git commit --amend"
 alias checkout="git checkout"
 
+alias django="python manage.py"
 alias startapp="django-admin startapp"
 alias runserver="source venv/bin/activate; python manage.py runserver"
 alias createsuperuser="source venv/bin/activate; python manage.py createsuperuser"
