@@ -90,17 +90,17 @@ function ho {
 
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
-	sudo apachectl restart
+	sudo apachectl graceful
 }
 
 function ras {
 	sudo vi /etc/apache2/sites-enabled/000-default.conf
-	sudo apachectl restart
+	sudo apachectl graceful
 }
 
 function ra {
 	sudo vi /etc/apache2/apache2.conf
-	sudo apachectl restart
+	sudo apachectl graceful
 }
 
 function sv-init {
