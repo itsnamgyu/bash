@@ -48,7 +48,7 @@ alias checkout="git checkout"
 alias develop="git checkout develop && git pull"
 
 alias amend="git commit --amend"
-alias oneline="git log --oneline"
+alias oneline="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 alias hardreset="git reset --hard"
 
 alias django="source venv/bin/activate; python manage.py"
