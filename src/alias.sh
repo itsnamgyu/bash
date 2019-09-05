@@ -12,7 +12,7 @@ if [[ $? == 0 ]]; then
 	alias l='exa -t=mod --time-style=long-iso'
 	alias ls='exa -t=mod --time-style=long-iso'
 	alias la='exa -t=mod --time-style=long-iso -a'
-	alias ll='exa -t=mod --time-style=long-iso -a --long --git'
+	alias ll='exa -t=mod --time-style=long-iso -a --long --group --git'
 	alias lt='exa -t=mod --time-style=long-iso --long --git --tree --level=2'
 else
 	if [[ "$OSTYPE" != "darwin"* ]]; then
