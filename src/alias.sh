@@ -113,7 +113,7 @@ function sv-init {
 }
 
 function sv-update {
-	sv
+	sv-init
 	pip3 install --upgrade pip
 	vi requirements.txt
 	pip3 install -r requirements.txt
