@@ -113,7 +113,8 @@ function sv-init {
 }
 
 function sv-update {
-	sv-init
+	python3 -m venv venv $@
+	sv
 	pip3 install --upgrade pip
 	vi requirements.txt
 	pip3 install -r requirements.txt
