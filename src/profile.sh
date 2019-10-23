@@ -22,6 +22,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Git Prompt
+export GIT_PS1_SHOWCOLORHINTS="TRUE"
+source ~/.bash/git-prompt.bash
+
 # Fancy prompt
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
@@ -35,8 +39,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+
 if [ "$color_prompt" = yes ]; then
-	PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;00m\]\$ '
+	PS1='\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[01;33m\] \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;00m\]\$ '
 else
 	PS1='\u:\w\$ '
 fi
@@ -50,6 +55,9 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+# English
+export LANG=en_US
 
 # GCC Colors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'

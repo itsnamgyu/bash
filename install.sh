@@ -3,6 +3,9 @@ touch ~/.bash_aliases
 touch ~/.bashrc
 touch ~/.bash_local.sh
 
+mkdir ~/.bash
+curl https://raw.githubusercontent.com/itsnamgyu/git/master/contrib/completion/git-prompt.sh > ~/.bash/git-prompt.sh
+
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.bash_profile ~/.bash_profile.bak
 mv ~/.bash_aliases ~/.bash_aliases.bak
