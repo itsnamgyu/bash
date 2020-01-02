@@ -71,8 +71,6 @@ alias gl="git log"
 alias ga="git add"
 alias gd="git diff"
 
-alias sv="source venv/bin/activate"
-
 alias ts="tmux ls"
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
@@ -102,6 +100,21 @@ function ras {
 function ra {
 	sudo vi /etc/apache2/apache2.conf
 	sudo apachectl graceful
+}
+
+function sv {
+	command -v "deactivate" >/dev/null 2>&1;
+	if [[ $? == '0' ]]; then
+		deactivate
+		echo 'Deactivating previous virtual environment'
+	fi
+
+	if [[ -f venv/bin/activate ]]; then
+		source venv/bin/activate
+		echo 'Activating new virtual environment'
+	else
+		echo 'Could not find virtual environment'
+	fi
 }
 
 function sv-init {
