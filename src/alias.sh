@@ -58,8 +58,11 @@ alias startapp="source venv/bin/activate; django-admin startapp"
 alias runserver="source venv/bin/activate; python manage.py runserver"
 alias createsuperuser="source venv/bin/activate; python manage.py createsuperuser"
 alias makemigrations="source venv/bin/activate; python manage.py makemigrations"
+alias showmigrations="source venv/bin/activate; python manage.py showmigrations"
 alias collectstatic="source venv/bin/activate; python manage.py collectstatic"
 alias migrate="source venv/bin/activate; python manage.py migrate"
+
+alias warp="touch -mt 200101010000"
 
 function add {
 	git add "$@"
