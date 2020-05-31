@@ -79,6 +79,3 @@ fi
 	
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
-
-#  Grep
-export GREP_OPTIONS='--color=auto -n'

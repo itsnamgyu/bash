@@ -22,6 +22,7 @@ else
 	alias ll='ls -alF'
 	alias la='ls -A'
 fi
+alias grep="/usr/bin/grep --color=auto -n"
 
 alias md="mkdir"
 alias cdd="cd .."
