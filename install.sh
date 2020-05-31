@@ -4,7 +4,7 @@ touch ~/.bashrc
 touch ~/.bash_local.sh
 
 mkdir ~/.bash
-curl https://raw.githubusercontent.com/itsnamgyu/git/master/contrib/completion/git-prompt.sh > ~/.bash/git-prompt.sh
+curl https://gist.githubusercontent.com/itsnamgyu/30e916f33a923fc19882b6ec76510c84/raw/6e5511d1c1e2d8aa34c8e24b2435f0d346218d0a/git-prompt.bash > ~/.bash/git-prompt.bash
 
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.bash_profile ~/.bash_profile.bak
