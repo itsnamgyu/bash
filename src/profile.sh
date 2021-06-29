@@ -4,9 +4,6 @@ case $- in
       *) return;;
 esac
 
-source ~/.bash_aliases
-source ~/.bash_local.sh
-
 HISTCONTROL=ignoreboth  # no duplicates in history
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -79,3 +76,10 @@ fi
 	
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Add commands to path
+mkdir -p ~/.commands
+export PATH=$PATH:~/.commands
+
+source ~/.bash_aliases
+source ~/.bash_local.sh
