@@ -5,7 +5,7 @@ It's my bash profile stuff
 Currently supported operating systems: mac, debian linux
 ```bash
 source install.sh
-make clean
+source clean
 ```
 
 ### To Edit Aliases
