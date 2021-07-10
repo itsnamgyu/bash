@@ -79,6 +79,7 @@ alias ts="tmux ls"
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
+alias tr="tmux rename-window"
 
 alias sts="sudo tmux ls"
 alias stn="sudo tmux new-session -s"
