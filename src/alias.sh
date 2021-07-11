@@ -88,6 +88,11 @@ alias stk="sudo tmux kill-session -t"
 
 alias jj="python -m json.tool"
 
+function sshe {
+	ssh $@
+	exit
+}
+
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
 	sudo apachectl graceful
