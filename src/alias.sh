@@ -81,17 +81,16 @@ alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tr="tmux rename-window"
 
+alias cn="conda create -n"
+alias ca="conda activate"
+alias cda="conda deactivate"
+
 alias sts="sudo tmux ls"
 alias stn="sudo tmux new-session -s"
 alias sta="sudo tmux attach -t"
 alias stk="sudo tmux kill-session -t"
 
 alias jj="python -m json.tool"
-
-function sshe {
-	ssh $@
-	exit
-}
 
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
