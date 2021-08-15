@@ -85,6 +85,8 @@ alias cn="conda create -n"
 alias ca="conda activate"
 alias cda="conda deactivate"
 
+alias ns="nvidia-smi"
+
 alias sts="sudo tmux ls"
 alias stn="sudo tmux new-session -s"
 alias sta="sudo tmux attach -t"
