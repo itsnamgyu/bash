@@ -3,9 +3,23 @@ alias rb="vi ~/.bash_profile; source ~/.bash_profile"
 alias rba="vi ~/.bash_aliases; source ~/.bash_profile"
 alias rbl="vi ~/.bash_local.sh; source ~/.bash_profile"
 
-alias ssh-config="vi ~/.ssh/config"
+alias ssh-config="mkdir -p ~/.ssh; vi ~/.ssh/config"
 alias ssh-key="cat ~/.ssh/id_rsa.pub"
-alias ssh-auth="vi ~/.ssh/authorized_keys"
+alias ssh-auth="mkdir -p ~/.ssh; vi ~/.ssh/authorized_keys"
+
+function ssh-tunnel {
+	if [ $# == 0 ]; then
+		echo "Must specify a source target"
+	fi
+
+	if [ $# == 1 ]; then
+		ssh localhost -L 0.0.0.0:$1:0.0.0.0:22
+	fi
+
+	if [ $# == 1 ]; then
+		ssh localhost -L 0.0.0.0:$1:0.0.0.0:$2
+	fi
+}
 
 command -v exa &>/dev/null
 if [[ $? == 0 ]]; then
