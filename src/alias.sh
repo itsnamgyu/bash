@@ -173,7 +173,7 @@ function clone {
 }
 
 function cd {
-	command cd "$*"
+	builtin cd "$*"
 	ls
 }
 
