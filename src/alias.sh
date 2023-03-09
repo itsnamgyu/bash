@@ -100,6 +100,7 @@ alias ca="conda activate"
 alias cda="conda deactivate"
 
 alias ns="nvidia-smi"
+alias wns="watch -n 0.25 nvidia-smi"
 
 alias sts="sudo tmux ls"
 alias stn="sudo tmux new-session -s"
