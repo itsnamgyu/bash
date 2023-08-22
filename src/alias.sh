@@ -7,35 +7,14 @@ alias ssh-config="mkdir -p ~/.ssh; vi ~/.ssh/config"
 alias ssh-key="cat ~/.ssh/id_rsa.pub"
 alias ssh-auth="mkdir -p ~/.ssh; vi ~/.ssh/authorized_keys"
 
-function ssh-tunnel {
-	if [ $# == 0 ]; then
-		echo "Must specify a source target"
-	fi
 
-	if [ $# == 1 ]; then
-		ssh localhost -L 0.0.0.0:$1:0.0.0.0:22
-	fi
-
-	if [ $# == 1 ]; then
-		ssh localhost -L 0.0.0.0:$1:0.0.0.0:$2
-	fi
-}
-
-command -v exa &>/dev/null
-if [[ $? == 0 ]]; then
-	alias l='exa -t=mod --time-style=long-iso'
-	alias ls='exa -t=mod --time-style=long-iso'
-	alias la='exa -t=mod --time-style=long-iso -a'
-	alias ll='exa -t=mod --time-style=long-iso -a --long --group --git'
-	alias lt='exa -t=mod --time-style=long-iso --long --git --tree --level=2'
-else
-	if [[ "$OSTYPE" != "darwin"* ]]; then
-		alias ls='ls --color=auto'
-	fi
-	alias l='ls -CF'
-	alias ll='ls -alF'
-	alias la='ls -A'
+if [[ "$OSTYPE" != "darwin"* ]]; then
+	alias ls='ls --color=auto'
 fi
+alias l='ls -CF'
+alias ll='ls -alF'
+alias la='ls -A'
+
 alias grep="/usr/bin/grep --color=auto -n"
 
 alias md="mkdir"
@@ -43,12 +22,6 @@ alias cdd="cd .."
 alias cddd="cd ../.."
 
 alias rsync="rsync -rvlP"
-
-alias cl="clear; printf '\e[3J"
-
-alias py="python"
-alias py2="python2"
-alias py3="python3"
 
 alias juppy="jupyter nbconvert --to script"
 
@@ -77,17 +50,12 @@ alias showmigrations="source venv/bin/activate; python manage.py showmigrations"
 alias collectstatic="source venv/bin/activate; python manage.py collectstatic"
 alias migrate="source venv/bin/activate; python manage.py migrate"
 
-alias warp="touch -mt 200101010000"
+alias warp="touch -mt 197001010000"
 
 function add {
 	git add "$@"
 	git status
 }
-
-alias gs="git status"
-alias gl="git log"
-alias ga="git add"
-alias gd="git diff"
 
 alias ts="tmux ls"
 alias tn="tmux new-session -s"
@@ -97,15 +65,13 @@ alias tr="tmux rename-window"
 
 alias cn="conda create -n"
 alias ca="conda activate"
+alias cr="conda env remove -n"
 alias cda="conda deactivate"
 
 alias ns="nvidia-smi"
+alias gs="gpu-stat"
+alias wgs="watch -n 0.25 gpu-stat"
 alias wns="watch -n 0.25 nvidia-smi"
-
-alias sts="sudo tmux ls"
-alias stn="sudo tmux new-session -s"
-alias sta="sudo tmux attach -t"
-alias stk="sudo tmux kill-session -t"
 
 alias jj="python -m json.tool"
 
@@ -163,14 +129,6 @@ function clone {
 		fi
 		cd $1
 	fi
-
-	if [ $# == 2 ]; then
-		git clone git@github.com:$1/$2.git
-		if [ $? -ne 0 ]; then
-			git clone https://github.com/$1/$2.git
-		fi
-		cd $2
-	fi
 }
 
 function cd {
@@ -181,85 +139,6 @@ function cd {
 function mdd {
 	mkdir $1
 	cd $1
-}
-
-function run {
-	if [ $# == 0 ]; then
-		if [ -f makefile ]; then
-			make
-			
-			if [ $? != 0 ]; then
-				echo "Make failed"
-				return -1
-			fi 
-
-			if [ -f test ]; then
-				./test
-				make clean
-				return 0
-			fi
-			
-			if [ -f a.out ]; then
-				./a.out
-				make clean
-				return 0
-			fi
-		fi
-
-		if [ -f a.out ]; then
-			./a.out
-			return 0
-		fi
-
-		cCount=`ls -l *.c 2>&1 | wc -l` > /dev/null
-		ls -l *.c > /dev/null
-		if ! [ $? == 0 ]; then
-			cCount=0
-		fi
-
-		cppCount=`ls -l *.cpp 2>&1 | wc -l` > /dev/null
-		ls -l *.cpp > /dev/null
-		if ! [ $? == 0 ]; then
-			cppCount=0
-			echo hoho
-		fi
-
-		if [ $cCount == 1 ] && [ $cppCount == 0 ]; then
-			run *.c
-			return $?
-		fi 
-		
-		if [ $cCount == 0 ] && [ $cppCount == 1 ]; then
-			run *.cpp
-			return $?
-		fi
-
-		echo "No makefile or more than one .c or .cpp file. Please specify"
-
-		return -1
-	else
-		if [[ $1 == *.c ]]; then
-			gcc -O2 -Wall -Wpedantic -Wextra -o .run_temp_output $1
-			./.run_temp_output
-			rm .run_temp_output
-		elif [[ $1 == *.cpp ]]; then
-			g++ --std=c++11 -o .run_temp_output $1
-			./.run_temp_output
-			rm .run_temp_output
-		else
-			./$1
-		fi
-
-		return 0
-	fi
-}
-
-function test {
-	if [[ $1 == *.c ]]; then
-		gcc -D TEST -O2 -Wall -Wextra -o .run_temp_output $1
-		./.run_temp_output
-		rm .run_temp_output
-	fi
 }
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
