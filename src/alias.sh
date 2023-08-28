@@ -69,8 +69,8 @@ alias cr="conda env remove -n"
 alias cda="conda deactivate"
 
 alias ns="nvidia-smi"
-alias gs="gpu-stat"
-alias wgs="watch -n 0.25 gpu-stat"
+alias gs="gpustat"
+alias wgs="watch -n 0.25 gpustat"
 alias wns="watch -n 0.25 nvidia-smi"
 
 alias jj="python -m json.tool"
