@@ -61,7 +61,7 @@ alias ts="tmux ls"
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
-alias tr="tmux rename-window"
+alias tr="tmux rename-session"
 
 alias cn="conda create -n"
 alias ca="conda activate"
