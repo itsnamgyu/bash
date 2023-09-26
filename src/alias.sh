@@ -74,6 +74,7 @@ alias wgs="watch -n 0.25 gpustat"
 alias wns="watch -n 0.25 nvidia-smi"
 
 alias jj="python -m json.tool"
+alias jnp="jupyter notebook --ip 0.0.0.0 --port "
 
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
