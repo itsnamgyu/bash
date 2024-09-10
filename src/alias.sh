@@ -142,8 +142,19 @@ function mdd {
 	cd $1
 }
 
+function sshl {
+	if [ $# == 1 ]; then
+		ssh -L 28888:localhost:28888 $1
+	elif [ $# == 2 ]; then
+		ssh -L $1:localhost:$1 $2
+	else
+		echo "usage: sshl [port] target"
+	fi
+}
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	function copy {
 		cat $@ | pbcopy
 	}
 fi
+
