@@ -152,6 +152,21 @@ function sshl {
 	fi
 }
 
+lsync() {
+    if [[ $# -ne 3 ]]; then
+        echo "Usage: lsync <host> <source> <target>"
+        return 1
+    fi
+
+    local host="$1"
+    local source="$2"
+    local target="$3"
+
+    lftp \
+        -e "set sftp:connect-program 'ssh -a -x -F ~/.ssh/config'; mirror --use-pget-n=20 \"$source\" \"$target\"; quit" \
+        "sftp://$host"
+}
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	function copy {
 		cat $@ | pbcopy
