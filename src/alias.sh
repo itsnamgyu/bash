@@ -68,6 +68,8 @@ alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tr="tmux rename-session"
 
+alias claude-pro="IS_SANDBOX=True claude --dangerously-skip-permissions"
+
 alias ns="nvidia-smi"
 alias gs="gpustat"
 alias wgs="watch -n 1 gpustat"
