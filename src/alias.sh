@@ -23,8 +23,6 @@ alias cddd="cd ../.."
 
 alias rsync="rsync -rvlP"
 
-alias juppy="jupyter nbconvert --to script"
-
 alias g="git"
 alias push="git push"
 alias pull="git pull"
@@ -50,8 +48,6 @@ alias showmigrations="source venv/bin/activate; python manage.py showmigrations"
 alias collectstatic="source venv/bin/activate; python manage.py collectstatic"
 alias migrate="source venv/bin/activate; python manage.py migrate"
 
-alias warp="touch -mt 197001010000"
-
 function add {
 	git add "$@"
 	git status
@@ -67,9 +63,6 @@ alias ns="nvidia-smi"
 alias gs="gpustat"
 alias wgs="watch -n 0.25 gpustat"
 alias wns="watch -n 0.25 nvidia-smi"
-
-alias jj="python -m json.tool"
-alias jnp="jupyter notebook --ip 0.0.0.0 --port "
 
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
