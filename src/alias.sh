@@ -4,7 +4,16 @@ alias rba="vi ~/.bash_aliases; source ~/.bash_profile"
 alias rbl="vi ~/.bash_local.sh; source ~/.bash_profile"
 
 alias ssh-config="mkdir -p ~/.ssh; vi ~/.ssh/config"
-alias ssh-key="cat ~/.ssh/id_rsa.pub"
+function ssh-key {
+	if [ -f ~/.ssh/id_ed25519.pub ]; then
+		cat ~/.ssh/id_ed25519.pub
+	elif [ -f ~/.ssh/id_rsa.pub ]; then
+		cat ~/.ssh/id_rsa.pub
+	else
+		echo "No SSH public key found. Running ssh-keygen..."
+		ssh-keygen
+	fi
+}
 alias ssh-auth="mkdir -p ~/.ssh; vi ~/.ssh/authorized_keys"
 
 
@@ -23,8 +32,6 @@ alias cddd="cd ../.."
 
 alias rsync="rsync -rvlP"
 
-alias juppy="jupyter nbconvert --to script"
-
 alias g="git"
 alias push="git push"
 alias pull="git pull"
@@ -40,6 +47,18 @@ alias amend="git commit --amend"
 alias oneline="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 alias hardreset="git reset --hard"
 
+function git-patch-global {
+	git config --global user.email "itsnamgyu@gmail.com"
+	git config --global user.name "Namgyu Ho"
+	git config --global core.editor vim
+}
+
+function git-patch {
+	git config user.email "itsnamgyu@gmail.com"
+	git config user.name "Namgyu Ho"
+	git config core.editor vim
+}
+
 alias django="source venv/bin/activate; python manage.py"
 alias startproject="source venv/bin/activate; django-admin startproject"
 alias startapp="source venv/bin/activate; django-admin startapp"
@@ -49,8 +68,6 @@ alias makemigrations="source venv/bin/activate; python manage.py makemigrations"
 alias showmigrations="source venv/bin/activate; python manage.py showmigrations"
 alias collectstatic="source venv/bin/activate; python manage.py collectstatic"
 alias migrate="source venv/bin/activate; python manage.py migrate"
-
-alias warp="touch -mt 197001010000"
 
 function add {
 	git add "$@"
@@ -63,18 +80,12 @@ alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tr="tmux rename-session"
 
-alias cn="conda create -n"
-alias ca="conda activate"
-alias cr="conda env remove -n"
-alias cda="conda deactivate"
+alias claude-pro="IS_SANDBOX=True claude --dangerously-skip-permissions"
 
 alias ns="nvidia-smi"
 alias gs="gpustat"
-alias wgs="watch -n 0.25 gpustat"
-alias wns="watch -n 0.25 nvidia-smi"
-
-alias jj="python -m json.tool"
-alias jnp="jupyter notebook --ip 0.0.0.0 --port "
+alias wgs="watch -n 1 gpustat"
+alias wns="watch -n 1 nvidia-smi"
 
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
@@ -140,16 +151,6 @@ function cd {
 function mdd {
 	mkdir $1
 	cd $1
-}
-
-function sshl {
-	if [ $# == 1 ]; then
-		ssh -L 28888:localhost:28888 $1
-	elif [ $# == 2 ]; then
-		ssh -L $1:localhost:$1 $2
-	else
-		echo "usage: sshl [port] target"
-	fi
 }
 
 lsync() {

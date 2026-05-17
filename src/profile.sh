@@ -1,3 +1,6 @@
+# Bash profile template by Namgyu Ho <itsnamgyu@gmail.com>
+# https://github.com/itsnamgyu/bash
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -80,6 +83,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Add commands to path
 mkdir -p ~/.commands
 export PATH=$PATH:~/.commands
+export PATH="$HOME/.local/bin:$PATH"
 
 source ~/.bash_aliases
 source ~/.bash_local.sh
