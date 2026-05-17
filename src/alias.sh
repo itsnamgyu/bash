@@ -63,11 +63,6 @@ alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tr="tmux rename-session"
 
-alias cn="conda create -n"
-alias ca="conda activate"
-alias cr="conda env remove -n"
-alias cda="conda deactivate"
-
 alias ns="nvidia-smi"
 alias gs="gpustat"
 alias wgs="watch -n 0.25 gpustat"
