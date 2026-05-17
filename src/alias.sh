@@ -47,6 +47,18 @@ alias amend="git commit --amend"
 alias oneline="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 alias hardreset="git reset --hard"
 
+function git-patch-global {
+	git config --global user.email "itsnamgyu@gmail.com"
+	git config --global user.name "Namgyu Ho"
+	git config --global core.editor vim
+}
+
+function git-patch {
+	git config user.email "itsnamgyu@gmail.com"
+	git config user.name "Namgyu Ho"
+	git config core.editor vim
+}
+
 alias django="source venv/bin/activate; python manage.py"
 alias startproject="source venv/bin/activate; django-admin startproject"
 alias startapp="source venv/bin/activate; django-admin startapp"
