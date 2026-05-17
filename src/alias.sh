@@ -61,8 +61,8 @@ alias tr="tmux rename-session"
 
 alias ns="nvidia-smi"
 alias gs="gpustat"
-alias wgs="watch -n 0.25 gpustat"
-alias wns="watch -n 0.25 nvidia-smi"
+alias wgs="watch -n 1 gpustat"
+alias wns="watch -n 1 nvidia-smi"
 
 function rass {
 	sudo vi /etc/apache2/sites-enabled/000-default-le-ssl.conf
