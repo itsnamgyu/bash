@@ -1,3 +1,6 @@
+# Bash profile template by Namgyu Ho <itsnamgyu@gmail.com>
+# https://github.com/itsnamgyu/bash
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
