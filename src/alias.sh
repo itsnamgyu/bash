@@ -4,7 +4,16 @@ alias rba="vi ~/.bash_aliases; source ~/.bash_profile"
 alias rbl="vi ~/.bash_local.sh; source ~/.bash_profile"
 
 alias ssh-config="mkdir -p ~/.ssh; vi ~/.ssh/config"
-alias ssh-key="cat ~/.ssh/id_rsa.pub"
+function ssh-key {
+	if [ -f ~/.ssh/id_ed25519.pub ]; then
+		cat ~/.ssh/id_ed25519.pub
+	elif [ -f ~/.ssh/id_rsa.pub ]; then
+		cat ~/.ssh/id_rsa.pub
+	else
+		echo "No SSH public key found. Running ssh-keygen..."
+		ssh-keygen
+	fi
+}
 alias ssh-auth="mkdir -p ~/.ssh; vi ~/.ssh/authorized_keys"
 
 
