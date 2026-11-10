@@ -4,7 +4,7 @@ touch ~/.bashrc
 touch ~/.bash_local.sh
 
 mkdir -p ~/.bash
-curl https://gist.githubusercontent.com/itsnamgyu/30e916f33a923fc19882b6ec76510c84/raw/6e5511d1c1e2d8aa34c8e24b2435f0d346218d0a/git-prompt.bash > ~/.bash/git-prompt.bash
+curl -fsSL https://raw.githubusercontent.com/git/git/v2.50.1/contrib/completion/git-prompt.sh -o ~/.bash/git-prompt.bash || echo "warning: git-prompt download failed, prompt will have no git info"
 
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.bash_profile ~/.bash_profile.bak
