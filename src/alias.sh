@@ -81,6 +81,7 @@ alias tk="tmux kill-session -t"
 alias tr="tmux rename-session"
 
 alias claude="IS_SANDBOX=True claude --dangerously-skip-permissions"
+alias cld="claude"
 alias cn="claude"
 alias cr="claude --resume"
 alias cf="claude --resume --fork-session"
