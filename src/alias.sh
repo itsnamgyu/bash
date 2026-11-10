@@ -80,9 +80,10 @@ alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tr="tmux rename-session"
 
-alias cn="IS_SANDBOX=True claude --dangerously-skip-permissions"
-alias cr="IS_SANDBOX=True claude --dangerously-skip-permissions --resume"
-alias cf="IS_SANDBOX=True claude --dangerously-skip-permissions --resume --fork-session"
+alias claude="IS_SANDBOX=True claude --dangerously-skip-permissions"
+alias cn="claude"
+alias cr="claude --resume"
+alias cf="claude --resume --fork-session"
 
 
 alias ns="nvidia-smi"
