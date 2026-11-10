@@ -30,7 +30,7 @@ alias md="mkdir"
 alias cdd="cd .."
 alias cddd="cd ../.."
 
-alias rsync="rsync -rvlP"
+alias rsync="rsync -avP"
 
 alias g="git"
 alias push="git push"
