@@ -8,8 +8,8 @@ case $- in
 esac
 
 HISTCONTROL=ignoreboth  # no duplicates in history
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 shopt -s histappend 2> /dev/null  # append history file
 shopt -s checkwinsize 2> /dev/null  # adjust to window size on every command
@@ -17,14 +17,13 @@ shopt -s globstar 2> /dev/null  # allow /**/
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"  # improve command <less>
 
-# ?
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # Git Prompt
 export GIT_PS1_SHOWCOLORHINTS="TRUE"
-source ~/.bash/git-prompt.bash
+[ -f ~/.bash/git-prompt.bash ] && source ~/.bash/git-prompt.bash
 
 # Fancy prompt
 case "$TERM" in
@@ -57,7 +56,7 @@ xterm*|rxvt*)
 esac
 
 # English
-export LANG=en_US
+export LANG=en_US.UTF-8
 
 # GCC Colors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -72,18 +71,19 @@ if ! shopt -oq posix; then
 fi
 export CLICOLOR=1
 
-# Tmux Colors
-if [[ $TMUX != "" ]]; then
-	export TERM="xterm-256color"
-fi
-	
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Add commands to path
-mkdir -p ~/.commands
-export PATH=$PATH:~/.commands
-export PATH="$HOME/.local/bin:$PATH"
+[ -d ~/.commands ] || mkdir -p ~/.commands
+case ":$PATH:" in
+	*":$HOME/.commands:"*) ;;
+	*) export PATH="$PATH:$HOME/.commands" ;;
+esac
+case ":$PATH:" in
+	*":$HOME/.local/bin:"*) ;;
+	*) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
 source ~/.bash_aliases
 source ~/.bash_local.sh

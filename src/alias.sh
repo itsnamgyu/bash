@@ -24,7 +24,7 @@ alias l='ls -CF'
 alias ll='ls -alF'
 alias la='ls -A'
 
-alias grep="/usr/bin/grep --color=auto -n"
+alias grep="grep --color=auto"
 
 alias md="mkdir"
 alias cdd="cd .."
@@ -59,16 +59,6 @@ function git-patch {
 	git config core.editor vim
 }
 
-alias django="source venv/bin/activate; python manage.py"
-alias startproject="source venv/bin/activate; django-admin startproject"
-alias startapp="source venv/bin/activate; django-admin startapp"
-alias runserver="source venv/bin/activate; python manage.py runserver"
-alias createsuperuser="source venv/bin/activate; python manage.py createsuperuser"
-alias makemigrations="source venv/bin/activate; python manage.py makemigrations"
-alias showmigrations="source venv/bin/activate; python manage.py showmigrations"
-alias collectstatic="source venv/bin/activate; python manage.py collectstatic"
-alias migrate="source venv/bin/activate; python manage.py migrate"
-
 function add {
 	git add "$@"
 	git status
@@ -78,7 +68,7 @@ alias ts="tmux ls"
 alias tn="tmux new-session -s"
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
-alias tr="tmux rename-session"
+alias trs="tmux rename-session"
 
 alias claude="IS_SANDBOX=True claude --dangerously-skip-permissions"
 alias cld="claude"
@@ -107,50 +97,17 @@ function ra {
 	sudo apachectl graceful
 }
 
-function sv {
-	command -v "deactivate" >/dev/null 2>&1;
-	if [[ $? == '0' ]]; then
-		deactivate
-		echo 'Deactivating previous virtual environment'
-	fi
-
-	if [[ -f venv/bin/activate ]]; then
-		source venv/bin/activate
-		echo 'Activating new virtual environment'
-	else
-		echo 'Could not find virtual environment'
-	fi
-}
-
-function sv-init {
-	python3 -m venv venv $@
-	sv
-	pip3 install --upgrade pip
-	vi requirements.txt
-	pip3 install -r requirements.txt
-}
-
-function sv-update {
-	python3 -m venv venv $@
-	sv
-	pip3 install --upgrade pip
-	vi requirements.txt
-	pip3 install -r requirements.txt
-}
-
 function clone {
-	if [ $# == 1 ]; then
-		git clone git@github.com:itsnamgyu/$1.git
-		if [ $? -ne 0 ]; then
-			git clone https://github.com/itsnamgyu/$1.git
-		fi
-		cd $1
+	if [ $# -eq 1 ] && [[ "$1" != *[:/]* ]]; then
+		git clone git@github.com:itsnamgyu/$1.git || git clone https://github.com/itsnamgyu/$1.git
+		cd "$1"
+	else
+		git clone "$@"
 	fi
 }
 
 function cd {
-	builtin cd "$*"
-	ls
+	builtin cd "$@" && ls
 }
 
 function mdd {
@@ -158,24 +115,9 @@ function mdd {
 	cd $1
 }
 
-lsync() {
-    if [[ $# -ne 3 ]]; then
-        echo "Usage: lsync <host> <source> <target>"
-        return 1
-    fi
-
-    local host="$1"
-    local source="$2"
-    local target="$3"
-
-    lftp \
-        -e "set sftp:connect-program 'ssh -a -x -F ~/.ssh/config'; mirror --use-pget-n=20 \"$source\" \"$target\"; quit" \
-        "sftp://$host"
-}
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	function copy {
-		cat $@ | pbcopy
+		cat "$@" | pbcopy
 	}
 fi
 
