@@ -85,5 +85,12 @@ case ":$PATH:" in
 	*) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
+# Reset modifyOtherKeys after each command, in case a program left it on
+# (under tmux extended-keys this otherwise turns Option+Arrow and even Ctrl+U into garbage)
+PROMPT_COMMAND='printf "\e[>4m"'"${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+# Option+Arrow word movement for xterm-style sequences (macOS bash 3.2 lacks these bindings)
+bind '"\e[1;3D": backward-word' 2>/dev/null
+bind '"\e[1;3C": forward-word' 2>/dev/null
+
 source ~/.bash_aliases
 source ~/.bash_local.sh
